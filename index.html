@@ -11,6 +11,171 @@
       href="./assets/images/favicon-32x32.png"
     />
     <title>Blog preview card</title>
+    <style>
+      /* Simple Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* Fonts Config */
+      @supports (font-variation-settings: normal) {
+        @font-face {
+          font-family: "Figtree";
+          src: url("./assets/fonts/Figtree-VariableFont_wght.ttf");
+          font-weight: 1 1000;
+          font-stretch: 50% 200%;
+          font-style: normal;
+        }
+        @font-face {
+          font-family: "Figtree";
+          src: url("./assets/fonts/Figtree-Italic-VariableFont_wght.ttf");
+          font-weight: 1 1000;
+          font-stretch: 50% 200%;
+          font-style: italic;
+        }
+      }
+      @supports not (font-variation-settings: normal) {
+        @font-face {
+          font-family: "Figtree";
+          src: url("./assets/fonts/static/Figtree-Medium.ttf");
+          font-weight: 500;
+        }
+        @font-face {
+          font-family: "Figtree";
+          src: url("./assets/fonts/static/Figtree-ExtraBold.ttf");
+          font-weight: 800;
+        }
+      }
+
+      /* Variables */
+
+      :root {
+        --FontSize: 16px;
+        --fontWeight: 500;
+        --FontFamily: "Figtree";
+
+        --White: hsl(0, 0%, 100%);
+        --Yellow: hsl(47, 88%, 63%);
+        --Gray-950: hsl(0, 0%, 7%);
+        --Gray-500: hsl(0, 0%, 42%);
+
+        @media (max-width: 767px) {
+          --FontSize: 14px;
+        }
+      }
+
+      /* Utilities */
+
+      .sr-only {
+        padding: 0;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        border-width: 0;
+        overflow: hidden;
+        position: absolute;
+        white-space: nowrap;
+        clip: rect(0, 0, 0, 0);
+      }
+
+      .badge {
+        font-weight: 800;
+        border-radius: 4px;
+        width: fit-content;
+        font-size: 0.875rem;
+        display: inline-block;
+        color: var(--Gray-950);
+        padding: 0.25rem 0.75rem;
+        background-color: var(--Yellow);
+      }
+
+      /* Page Style */
+
+      html {
+        font-size: var(--FontSize);
+        font-family: var(--FontFamily);
+        font-weight: var(--fontWeight);
+      }
+
+      body {
+        line-height: 1.5;
+        font-size: 0.875rem;
+        color: var(--Gray-950);
+      }
+
+      .container {
+        display: grid;
+        min-height: 100vh;
+        place-items: center;
+        padding-inline: 20px;
+        background-color: var(--Yellow);
+      }
+
+      /* Card Style */
+
+      .card {
+        width: 384px;
+        display: grid;
+        row-gap: 24px;
+        padding: 1.5rem;
+        max-width: 100%;
+        cursor: pointer;
+        border-radius: 1.25rem;
+        background-color: var(--White);
+        border: 1px solid var(--Gray-500);
+        filter: drop-shadow(8px 8px rgb(0, 0, 0));
+        &:hover {
+          .title {
+            color: var(--Yellow);
+          }
+        }
+        @media (max-width: 767px) {
+          width: 327px;
+        }
+
+        .image {
+          width: 100%;
+          height: 200px;
+          object-fit: cover;
+          border-radius: 10px;
+        }
+
+        .content {
+          display: grid;
+          row-gap: 12px;
+
+          .title {
+            font-weight: 800;
+            font-size: 1.5rem;
+            will-change: color;
+            transition-duration: 0.3s;
+            transition-property: color;
+          }
+
+          .body {
+            font-size: 1rem;
+            color: var(--Gray-500);
+          }
+        }
+
+        .author {
+          display: flex;
+          column-gap: 12px;
+          align-items: center;
+
+          .avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+          }
+          .name {
+            font-weight: 800;
+          }
+        }
+      }
+    </style>
   </head>
   <body>
     <main>
